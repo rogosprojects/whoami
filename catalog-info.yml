@@ -10,6 +10,7 @@ metadata:
     - tanzu
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=whoami'
+    'backstage.io/techdocs-ref': https://github.com/etragni/whoami/blob/main/README.md
 spec:
   type: frontend
   lifecycle: experimental
