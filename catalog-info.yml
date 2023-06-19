@@ -11,6 +11,6 @@ metadata:
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=whoami'
 spec:
-  type: service
+  type: frontend
   lifecycle: experimental
-  owner: default-team
+  owner: evan
