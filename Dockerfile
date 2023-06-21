@@ -6,14 +6,10 @@ COPY . .
 
 ENV CGO_ENABLED=0
 
-RUN apk update --no-cache && \
-    apk upgrade --no-cache && \
-    apk add --no-cache --update ca-certificates make git && \
-    rm -rf /var/cache/apk* && \
-    make build
+RUN apk add --no-cache --update ca-certificates make git && make build
 
 # Create a minimal container to run a Golang static binary
-FROM alpine
+FROM alpine:3
 
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
