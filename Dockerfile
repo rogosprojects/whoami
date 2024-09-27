@@ -1,4 +1,4 @@
-FROM golang:1.17-alpine as builder
+FROM r.deso.tech/dockerhub/library/golang:1.17-alpine as builder
 
 WORKDIR /whoami
 
@@ -9,7 +9,7 @@ ENV CGO_ENABLED=0
 RUN apk add --no-cache --update ca-certificates make git && make build
 
 # Create a minimal container to run a Golang static binary
-FROM alpine:3
+FROM r.deso.tech/dockerhub/library/alpine:3
 
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
