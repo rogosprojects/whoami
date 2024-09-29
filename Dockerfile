@@ -6,7 +6,7 @@ COPY . .
 
 ENV CGO_ENABLED=0
 
-RUN apk add --no-cache --update ca-certificates make git && make build && sleep 5
+RUN apk add --no-cache --update ca-certificates make git && make build
 
 # Create a minimal container to run a Golang static binary
 FROM r.deso.tech/dockerhub/library/alpine:3
