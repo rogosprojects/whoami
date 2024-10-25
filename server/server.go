@@ -164,6 +164,11 @@ func memusageHandler(w http.ResponseWriter, _ *http.Request) {
 	util.WriteJSONResponse(w, memUsage)
 }
 
+func envHandler(w http.ResponseWriter, _ *http.Request) {
+	envvars := app.GetEnvVars()
+	util.WriteJSONResponse(w, envvars)
+}
+
 type Server struct {
 	Port uint64
 }
@@ -199,6 +204,7 @@ func (s *Server) Start() {
 	http.HandleFunc("/zee", zeeHandler)
 	http.HandleFunc("/captainkube", captainkubeHandler)
 	http.HandleFunc("/phippy", phippyHandler)
+	http.HandleFunc("/env", envHandler)
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 

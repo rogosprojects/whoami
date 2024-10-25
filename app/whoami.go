@@ -3,6 +3,7 @@ package app
 import (
 	"net"
 	"os"
+	"strings"
 )
 
 var Info WhoamiInfo
@@ -10,6 +11,15 @@ var Info WhoamiInfo
 type WhoamiInfo struct {
 	Hostname  string
 	Addresses map[string][]string
+}
+
+func GetEnvVars() map[string]string {
+	envvars := make(map[string]string)
+	for _, env := range os.Environ() {
+		envvar := strings.Split(env, "=")
+		envvars[envvar[0]] = envvar[1]
+	}
+	return envvars
 }
 
 func getWhoamiInfo() WhoamiInfo {

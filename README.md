@@ -27,6 +27,7 @@ endpoints to stress-test and get information on the running system.
   returned by these endpoints to manage containers autonomously.
 - `/zee`, `/captainkube`, `/phippy`, `/goldie`: some cute pictures followed by
   the system info (as in `/`).
+- `/env`: show all OS environment variables
 
 ## Environment
 - `LOG_INTERVAL`: controls how often the app logs CPU and memory usage to the
