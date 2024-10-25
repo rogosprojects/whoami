@@ -7,7 +7,7 @@ import (
 )
 
 func WriteJSONResponse(w http.ResponseWriter, data interface{}) error {
-	bytes, err := json.Marshal(data)
+	bytes, err := json.MarshalIndent(data, "", "  ")
 	if err != nil {
 		return err
 	}
